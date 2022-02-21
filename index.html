@@ -1,0 +1,71 @@
+﻿ <!DOCTYPE HTML>
+<html>
+<head>
+<title>Example</title>
+<style>
+.main{width:400px;
+height:350px;
+background-color:#CFD7EA;;
+margin:0 auto;}
+h2{text-align:center;
+padding-top:10px;
+color:darkblue;}
+p{font-size:20px;
+font-weight:bold;
+margin:20px;}
+input{margin-left:20px;}
+button{margin-left:20px;
+margin-top:20px;}
+</style>
+</head>
+<body>
+<!--Даны 2 инпута и кнопка. В инпуты вводятся числа.
+ По нажатию на кнопку выведите список общих делителей этих двух чисел.-->
+<div class="main">
+<h2>Common divisors of two numbers</h2>
+<p>Enter the first number</p>
+<input type="text" id="first"><br>
+<p>Enter the second number</p>
+<input type="text" id="second"><br>
+<button id="button">Click on me</button>
+<button id="clear">Clear</button>
+<p id="result">Result:</p>
+</div>
+<script>
+let first=document.getElementById('first');
+let second=document.getElementById('second');
+let result=document.getElementById('result');
+let btn=document.getElementById('button');
+let clear=document.getElementById('clear');
+button.addEventListener('click',func1);
+clear.addEventListener('click',func2);
+function func1(){
+let number1=parseFloat(first.value);
+let number2=parseFloat(second.value);
+let arr=[];
+if (number1>number2){
+for (let i=1;i<=number1; i++){
+	if (number1%i==0 && number2%i==0){
+		arr.push(i);
+	}
+result.innerHTML=arr.join(',');	
+}
+} else if(number2>number1){
+for (let i=1;i<=number2; i++){
+	if (number1%i==0 && number2%i==0){
+		arr.push(i);
+	}
+	res=arr.join(',');
+}
+result.innerHTML=result.innerHTML+res;
+}
+}
+function func2(){
+	first.value='';
+	second.value='';
+	result.innerHTML='Result:';
+}
+
+</script>
+</body>
+</html>
